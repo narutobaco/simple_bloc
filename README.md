@@ -1,6 +1,6 @@
-# my_app
+# simple_bloc
 
-A new Flutter project.
+A simple Flutter project use Bloc design pattern.
 
 ## Getting Started
 
