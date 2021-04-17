@@ -84,6 +84,10 @@ class ProductBloc {
     allItem['shop items'].add(shopProduct);
   }
 
+  void buyProduct(productId) {
+    allItem['cart items'].removeWhere((item) => item.id == productId);
+  }
+
   int getNumberCartItem(productId) {
     return allItem['cart items']
         .firstWhere((item) => item.id == productId)
