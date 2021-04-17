@@ -7,7 +7,7 @@ class ProductBloc {
 
   final Map allItem = {'shop items': products, 'cart items': []};
   void addToCart(productId, numb) {
-    print("add to cart : $productId");
+    print("add to cart : $productId ---- num: $numb");
     Product temp =
         allItem['shop items'].firstWhere((item) => item.id == productId);
     Product shopProduct = Product(

@@ -20,10 +20,11 @@ class _CartCounterState extends State<CartCounter> {
   int numOfItems = 1;
   @override
   Widget build(BuildContext context) {
-    if (product.quantity == 0) {
+    if (product.quantity <= 0) {
       counterBloc.changeCounter(0);
       return Text("This product is out of stock");
-    } else
+    } else {
+      counterBloc.changeCounter(numOfItems);
       return Row(
         children: <Widget>[
           buildOutlineButton(
@@ -57,6 +58,7 @@ class _CartCounterState extends State<CartCounter> {
               }),
         ],
       );
+    }
   }
 
   SizedBox buildOutlineButton({IconData icon, Function press}) {

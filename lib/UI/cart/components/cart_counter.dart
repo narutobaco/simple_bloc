@@ -5,18 +5,19 @@ import 'package:my_app/model/Product.dart';
 
 class CartCounter extends StatefulWidget {
   @override
-  const CartCounter({
-    Key key,
-    @required this.product,
-  }) : super(key: key);
+  const CartCounter(
+      {Key key, @required this.product, @required this.numOfItems})
+      : super(key: key);
   final Product product;
-  _CartCounterState createState() => _CartCounterState(product: this.product);
+  final int numOfItems;
+  _CartCounterState createState() =>
+      _CartCounterState(product: this.product, numOfItems: this.numOfItems);
 }
 
 class _CartCounterState extends State<CartCounter> {
-  _CartCounterState({@required this.product});
+  _CartCounterState({@required this.product, @required this.numOfItems});
   Product product;
-  int numOfItems = 1;
+  int numOfItems;
   @override
   Widget build(BuildContext context) {
     return Row(

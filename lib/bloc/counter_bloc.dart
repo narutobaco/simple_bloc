@@ -9,6 +9,10 @@ class CounterBloc {
     print("counter: $counter");
   }
 
+  int getCounter() {
+    return counter;
+  }
+
   void dispose() {
     counterStreamController.close(); // close our StreamController
   }

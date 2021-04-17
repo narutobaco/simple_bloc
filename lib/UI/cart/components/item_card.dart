@@ -57,6 +57,7 @@ class ItemCard extends StatelessWidget {
                 Center(
                   child: CartCounter(
                     product: this.product,
+                    numOfItems: this.product.quantity,
                   ),
                 ),
               ],

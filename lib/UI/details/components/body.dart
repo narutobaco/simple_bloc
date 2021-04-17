@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/UI/cart/components/cart_counter.dart';
 import 'package:my_app/bloc/product_bloc.dart';
+import 'item_counter.dart';
 import 'package:my_app/constants.dart';
 import 'package:my_app/model/Product.dart';
 import 'package:my_app/bloc/counter_bloc.dart';
@@ -54,10 +54,7 @@ class Body extends StatelessWidget {
                                 product: this.product,
                               ),
                               SizedBox(height: kDefaultPaddin / 2),
-                              AddToCart(
-                                product: product,
-                                number: 1,
-                              )
+                              AddToCart(product: product)
                             ],
                           );
                         })),
