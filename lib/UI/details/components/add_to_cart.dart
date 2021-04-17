@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:my_app/model/Product.dart';
+import 'package:my_app/bloc/product_bloc.dart';
 
 import '../../../constants.dart';
 
 class AddToCart extends StatelessWidget {
-  const AddToCart({
-    Key key,
-    @required this.product,
-  }) : super(key: key);
+  const AddToCart({Key key, @required this.product, @required this.number})
+      : super(key: key);
 
   final Product product;
-
+  final int number;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -33,7 +32,9 @@ class AddToCart extends StatelessWidget {
                 "assets/icons/add_to_cart.svg",
                 color: product.color,
               ),
-              onPressed: () {},
+              onPressed: () {
+                bloc.addToCart(product.id, this.number);
+              },
             ),
           ),
           Expanded(
@@ -43,7 +44,9 @@ class AddToCart extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(18)),
                 color: product.color,
-                onPressed: () {},
+                onPressed: () {
+                  bloc.addToCart(product.id, this.number);
+                },
                 child: Text(
                   "Buy  Now".toUpperCase(),
                   style: TextStyle(

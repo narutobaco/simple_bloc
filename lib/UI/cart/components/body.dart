@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/constants.dart';
 import 'package:my_app/model/Product.dart';
-import 'package:my_app/UI/details/details_screen.dart';
 
 import 'item_card.dart';
 

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:my_app/constants.dart';
-import 'package:my_app/model/Product.dart';
 import 'package:my_app/UI/cart/components/body.dart';
 
 class CartScreen extends StatelessWidget {
