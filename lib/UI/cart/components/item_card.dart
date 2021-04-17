@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/model/Product.dart';
+import 'package:my_app/bloc/product_bloc.dart';
 import 'cart_counter.dart';
 import '../../../constants.dart';
 
-class ItemCard extends StatelessWidget {
+class ItemCard extends StatefulWidget {
   final Product product;
+  @override
   const ItemCard({
     Key key,
     this.product,
   }) : super(key: key);
+  _ItemCardState createState() => _ItemCardState(product: this.product);
+}
 
+class _ItemCardState extends State<ItemCard> {
+  _ItemCardState({@required this.product});
+  final Product product;
   @override
   Widget build(BuildContext context) {
+    int totalCost = product.quantity * product.price;
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
@@ -51,7 +59,7 @@ class ItemCard extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "Total: \$${product.price}",
+                  "Total: \$$totalCost",
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 Center(
@@ -74,7 +82,10 @@ class ItemCard extends StatelessWidget {
                         borderRadius: BorderRadius.circular(9),
                       ),
                       color: Colors.white,
-                      onPressed: () {},
+                      onPressed: () {
+                        bloc.removeToCart(this.product.id, product.quantity);
+                        Navigator.popAndPushNamed(context, '/cart');
+                      },
                       child: Icon(
                         Icons.delete,
                         color: Colors.redAccent,

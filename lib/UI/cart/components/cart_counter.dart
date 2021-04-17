@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:my_app/bloc/product_bloc.dart';
 import '../../../constants.dart';
 import 'package:my_app/model/Product.dart';
 
@@ -29,6 +29,7 @@ class _CartCounterState extends State<CartCounter> {
             if (numOfItems > 1) {
               setState(() {
                 numOfItems--;
+                bloc.removeToCart(product.id, 1);
               });
             }
           },
@@ -44,9 +45,11 @@ class _CartCounterState extends State<CartCounter> {
         buildOutlineButton(
             icon: Icons.add,
             press: () {
-              if (numOfItems < product.quantity) {
+              if (numOfItems <
+                  product.quantity + bloc.getNumberShopItem(product.id)) {
                 setState(() {
                   numOfItems++;
+                  bloc.addToCart(product.id, 1);
                 });
               }
             }),

@@ -17,8 +17,13 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       elevation: 0,
       leading: IconButton(
-        icon: SvgPicture.asset("assets/icons/back.svg"),
-        onPressed: () {},
+        icon: Icon(
+          Icons.replay,
+          color: Colors.black26,
+        ),
+        onPressed: () {
+          Navigator.popAndPushNamed(context, '/');
+        },
       ),
       actions: <Widget>[
         IconButton(
