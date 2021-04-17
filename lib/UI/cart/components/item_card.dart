@@ -96,7 +96,7 @@ class _ItemCardState extends State<ItemCard> {
                       buildOutlineButton(
                           icon: Icons.add,
                           press: () {
-                            if (numOfItems <
+                            if (numOfItems <=
                                 product.quantity +
                                     bloc.getNumberShopItem(product.id)) {
                               setState(() {
