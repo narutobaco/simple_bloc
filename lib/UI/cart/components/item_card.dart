@@ -54,15 +54,6 @@ class ItemCard extends StatelessWidget {
                   "Total: \$${product.price}",
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: kDefaultPaddin / 4),
-                  child: Text(
-                    // products is out demo list
-                    "Remain: ${product.quantity}",
-                    style: TextStyle(color: kTextLightColor),
-                  ),
-                ),
                 Center(
                   child: CartCounter(
                     product: this.product,
